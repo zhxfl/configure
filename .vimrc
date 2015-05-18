@@ -18,6 +18,7 @@ Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/grep.vim'
 Bundle 'Rip-Rip/clang_complete'
+Bundle 'Valloric/YouCompleteMe'
 
 filetype plugin indent on     " required!   /** vimrc文件配置结束 **/
 "                                           /** vundle命令 **/
