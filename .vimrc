@@ -51,6 +51,7 @@ let g:ycm_confirm_extra_conf = 0
 nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <F12>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap     <Leader>ff :FufCoverageFile<CR>
 
 " 总是显示状态栏
 set laststatus=2
@@ -115,8 +116,18 @@ nmap <Leader>sch :AS<CR>
 
 """"""""""""""""""""""""
 " 配色方案
-set background=dark
+"set background=dark
 "highlight Normal ctermfg=grey 
 "colorscheme solarized
 "colorscheme molokai  
 "colorscheme solarized
+"
+"
+" 随 vim 自启动
+let g:indent_guides_enable_on_vim_startup=1
+" 从第二层开始可视化显示缩进
+let g:indent_guides_start_level=2
+" 色块宽度
+let g:indent_guides_guide_size=1
+" 快捷键 i 开/关缩进可视化
+nmap <silent> <Leader>i <Plug>IndentGuidesToggle
