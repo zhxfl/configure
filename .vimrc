@@ -65,6 +65,7 @@ set number
 "开启光亮光标行
 set cursorline
 hi CursorLine   cterm=underline
+"hi CursorLine   cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkgrey guifg=white
 "开启高亮光标列
 set cursorcolumn
 hi CursorColumn cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkgrey guifg=white
@@ -121,15 +122,14 @@ nmap <Leader>sch :AS<CR>
 set background=dark
 "highlight Normal ctermfg=grey 
 "colorscheme solarized
-colorscheme molokai  
-"colorscheme solarized
+"colorscheme molokai  
 "
 "
 "随 vim 自启动
-"let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_enable_on_vim_startup=1
 " 从第二层开始可视化显示缩进
-"let g:indent_guides_start_level=2
+let g:indent_guides_start_level=2
 " 色块宽度
-"let g:indent_guides_guide_size=1
+let g:indent_guides_guide_size=1
 " 快捷键 i 开/关缩进可视化
-"nmap <silent> <Leader>i <Plug>IndentGuidesToggle 
+nmap <silent> <Leader>i <Plug>IndentGuidesToggle 
