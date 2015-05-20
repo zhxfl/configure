@@ -1,0 +1,9 @@
+[user]
+	email = huanxinzheng@tuputech.com
+	name = zhxfl
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
