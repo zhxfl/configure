@@ -23,6 +23,7 @@ Bundle 'Mizuchi/STL-Syntax'
 Bundle 'vim-scripts/a.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
+Bundle 'Yggdroot/indentLine'
 
 filetype plugin indent on     " required!   /** vimrc文件配置结束 **/
 "                                           /** vundle命令 **/
@@ -59,14 +60,18 @@ set laststatus=2
 set ruler
 " 开启行号显示
 set number
+
+
+colorscheme desert
 "开启光亮光标行
 set cursorline
-hi CursorLine   cterm=underline
+"hi CursorLine   cterm=underline
 "hi CursorLine   cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkgrey guifg=white
 
 "开启高亮光标列
 set cursorcolumn
-hi CursorColumn cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkgrey guifg=white
+hi CursorColumn term=NONE cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkgrey guifg=white
+hi CursorLine   term=NONE cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkgrey guifg=white
 
 " 高亮显示搜索结果
 set hlsearch
@@ -123,14 +128,10 @@ nmap <Leader>sch :AS<CR>
 "colorscheme molokai  
 "
 "
-" 随 vim 自启动
-let g:indent_guides_enable_on_vim_startup=1
-" 从第二层开始可视化显示缩进
-let g:indent_guides_start_level=2
-" 色块宽度
-let g:indent_guides_guide_size=1
-" 快捷键 i 开/关缩进可视化
-nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+""""缩进显示"""""
+
+let g:indentLine_char = '¦'
+let g:indentLine_enabled = 1 
+
 
 colorscheme desert
-"highlight Comment ctermfg=green guifg=green
