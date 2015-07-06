@@ -1,9 +1,8 @@
 set nocompatible               " be iMproved
 filetype off                   " required!       /**  从这行开始，vimrc配置 **/
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
@@ -25,7 +24,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
 Bundle 'Yggdroot/indentLine'
 Bundle 'scrooloose/nerdcommenter'
-
+call vundle#end()            " required
 filetype plugin indent on     " required!   /** vimrc文件配置结束 **/
 "                                           /** vundle命令 **/
 " Brief help
