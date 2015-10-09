@@ -43,6 +43,7 @@ syntax on
 
 nnoremap <silent> <F6>   :tabn<CR>
 nnoremap <silent> <F5>   :tabp<CR>
+nnoremap <silent> <F11>   :Rgrep<CR>
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_collect_identifiers_from_tags_files = 1
@@ -82,6 +83,8 @@ set expandtab
 " 设置编辑时制表符占用空格数
 set tabstop=4
 " 设置格式化时制表符占用空格数
+set sw=4
+
 set shiftwidth=4
 " 让 vim 把连续数量的空格视为一个制表符
 set softtabstop=4
@@ -103,8 +106,8 @@ if has("cscope")
 endif
 
 
-nmap <F10> :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <F11> :cs find g <C-R>=expand("<cword>")<CR><CR>
+"nmap <F10> :cs find s <C-R>=expand("<cword>")<CR><CR>
+"nmap <F11> :cs find g <C-R>=expand("<cword>")<CR><CR>
  
 "nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
 "nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
