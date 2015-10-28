@@ -24,6 +24,7 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
 Bundle 'Yggdroot/indentLine'
+Bundle 'scrooloose/nerdcommenter'
 
 filetype plugin indent on     " required!   /** vimrc文件配置结束 **/
 "                                           /** vundle命令 **/
