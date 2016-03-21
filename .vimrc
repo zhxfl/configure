@@ -43,15 +43,15 @@ syntax on
 
 nnoremap <silent> <F6>   :tabn<CR>
 nnoremap <silent> <F5>   :tabp<CR>
-nnoremap <silent> <F11>   :Rgrep<CR>
+nnoremap <silent> <F7>  :Rgrep<CR>
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_confirm_extra_conf = 0
 
-nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <F10> :YcmCompleter GoToDeclaration<CR>
+nnoremap <F9>  :YcmCompleter GoToDefinition<CR>
 nnoremap <F12>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nmap     <Leader>ff :FufCoverageFile<CR>
 
@@ -90,25 +90,26 @@ set shiftwidth=4
 set softtabstop=4
 
 ":cscope add ~/.vim/cscope.out
+":cscope add ./cscope.out
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cscope setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("cscope")
-	set csprg=/usr/bin/cscope
-	set csto=1
-	set cst
-        set nocsverb
-        " add any database in current directory
-        if filereadable("cscope.out")
-		cs add cscope.out
-        endif
-        set csverb
+    set csprg=/usr/bin/cscope
+    set csto=1
+    set cst
+    set nocsverb
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+    endif
+    set csverb
 endif
 
 
 "nmap <F10> :cs find s <C-R>=expand("<cword>")<CR><CR>
 "nmap <F11> :cs find g <C-R>=expand("<cword>")<CR><CR>
- 
+
 "nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
 "nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
 "nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
@@ -125,7 +126,7 @@ nmap <Leader>sch :AS<CR>
 
 """"""""""""""""""""""""
 " 配色方案
-"set background=dark
+set background=dark
 "highlight Normal ctermfg=grey 
 "colorscheme solarized
 "colorscheme molokai  
@@ -136,5 +137,11 @@ nmap <Leader>sch :AS<CR>
 let g:indentLine_char = '¦'
 let g:indentLine_enabled = 1 
 
-
 colorscheme desert
+
+let g:clang_use_library = 1
+let g:clang_library_path = '/usr/lib/llvm-3.5/lib'
+
+"CUDA syntax highlight {
+au BufNewFile,BufRead *.cu set ft=cuda
+" }
