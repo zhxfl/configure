@@ -46,9 +46,12 @@ nnoremap <silent> <F5>   :tabp<CR>
 nnoremap <silent> <F7>  :Rgrep<CR>
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_register_as_syntastic_checker = 1
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_confirm_extra_conf = 0
+
 
 nnoremap <F10> :YcmCompleter GoToDeclaration<CR>
 nnoremap <F9>  :YcmCompleter GoToDefinition<CR>
@@ -139,8 +142,8 @@ let g:indentLine_enabled = 1
 
 colorscheme desert
 
-let g:clang_use_library = 1
-let g:clang_library_path = '/usr/lib/llvm-3.5/lib'
+"let g:clang_use_library = 0
+"let g:clang_library_path = '/usr/local/clang/lib/'
 
 "CUDA syntax highlight {
 au BufNewFile,BufRead *.cu set ft=cuda
