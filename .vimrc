@@ -14,14 +14,10 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/L9'
 Bundle 'vim-scripts/FuzzyFinder'
-Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/grep.vim'
-Bundle 'Rip-Rip/clang_complete'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Mizuchi/STL-Syntax'
 Bundle 'vim-scripts/a.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tomasr/molokai'
 Bundle 'Yggdroot/indentLine'
 Bundle 'scrooloose/nerdcommenter'
 call vundle#end()            " required
@@ -47,7 +43,6 @@ nnoremap <silent> <F7>  :Rgrep<CR>
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_register_as_syntastic_checker = 1
-"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_confirm_extra_conf = 0
@@ -92,35 +87,6 @@ set shiftwidth=4
 " 让 vim 把连续数量的空格视为一个制表符
 set softtabstop=4
 
-":cscope add ~/.vim/cscope.out
-":cscope add ./cscope.out
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" cscope setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("cscope")
-    set csprg=/usr/bin/cscope
-    set csto=1
-    set cst
-    set nocsverb
-    " add any database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out
-    endif
-    set csverb
-endif
-
-
-"nmap <F10> :cs find s <C-R>=expand("<cword>")<CR><CR>
-"nmap <F11> :cs find g <C-R>=expand("<cword>")<CR><CR>
-
-"nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-"nmap <C-@>i :cs find i^<C-R>=expand("<cfile>")<CR>$<CR>
-"nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-
-
 """"""""""""""""""""""""
 " *.cpp 和 *.h 间切换
 nmap <Leader>ch  :A<CR>
@@ -142,9 +108,7 @@ let g:indentLine_enabled = 1
 
 colorscheme desert
 
-"let g:clang_use_library = 0
-"let g:clang_library_path = '/usr/local/clang/lib/'
 
 "CUDA syntax highlight {
-au BufNewFile,BufRead *.cu set ft=cuda
+"au BufNewFile,BufRead *.cu set ft=cuda
 " }
