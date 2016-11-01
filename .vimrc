@@ -36,9 +36,7 @@ filetype plugin indent on     " required!   /** vimrc文件配置结束 **/
 syntax enable
 " 允许用指定语法高亮配色方案替换默认方案
 syntax on
-
-nnoremap <silent> <F6>   :tabn<CR>
-nnoremap <silent> <F5>   :tabp<CR>
+" grep 所搜字符串
 nnoremap <silent> <F7>  :Rgrep<CR>
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
@@ -48,10 +46,16 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_confirm_extra_conf = 0
 
 
+" YCM自動補全和跳轉
 nnoremap <F10> :YcmCompleter GoToDeclaration<CR>
 nnoremap <F9>  :YcmCompleter GoToDefinition<CR>
-nnoremap <F12>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nmap     <Leader>ff :FufCoverageFile<CR>
+nnoremap <F12> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"""fuzzy finder"""
+"查找文件跳轉　
+nmap <Leader>ff :FufCoverageFile<CR>
+"查找tags FufTag
+"nmap <Leader>tt: FufTag<CR>
 
 " 总是显示状态栏
 set laststatus=2
@@ -96,19 +100,17 @@ nmap <Leader>sch :AS<CR>
 """"""""""""""""""""""""
 " 配色方案
 set background=dark
-"highlight Normal ctermfg=grey 
-"colorscheme solarized
-"colorscheme molokai  
-"
-"
 """"缩进显示"""""
-
 let g:indentLine_char = '¦'
 let g:indentLine_enabled = 1 
 
-colorscheme desert
+""""support c++11""""""
+let g:syntastic_cpp_compiler='g++' "change the compiler to g++ to support c++11. 
+let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++' "set the options of g++ to suport c++11.
 
-
-"CUDA syntax highlight {
-"au BufNewFile,BufRead *.cu set ft=cuda
-" }
+"""""ctags auto update"""""
+function! UpdateCtags()
+    !ctags -R --file-scope=yes --langmap=c:+.cu --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q
+    TlistUpdate 
+endfunction
+nmap <F2> : call UpdateCtags() <CR>
