@@ -20,6 +20,8 @@ Bundle 'Mizuchi/STL-Syntax'
 Bundle 'vim-scripts/a.vim'
 Bundle 'Yggdroot/indentLine'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'vim-scripts/Conque-GDB' 
+Bundle 'kien/rainbow_parentheses.vim'
 call vundle#end()            " required
 filetype plugin indent on     " required!   /** vimrc文件配置结束 **/
 "                                           /** vundle命令 **/
@@ -91,11 +93,11 @@ set shiftwidth=4
 " 让 vim 把连续数量的空格视为一个制表符
 set softtabstop=4
 
-""""""""""""""""""""""""
-" *.cpp 和 *.h 间切换
-nmap <Leader>ch  :A<CR>
-" 子窗口中显示 *.cpp 或 *.h
-nmap <Leader>sch :AS<CR>
+""""""""""""""""""""""""a.vim
+" *.cpp 和 *.h 间切换--> :A
+" *.cpp 和 *.h 间切换,左右分裂窗口--> :AV
+" *.cpp 和 *.h 间切换,上下分裂窗口--> :AS
+" 
 
 """"""""""""""""""""""""
 " 配色方案
@@ -114,3 +116,15 @@ function! UpdateCtags()
     TlistUpdate 
 endfunction
 nmap <F2> : call UpdateCtags() <CR>
+
+""""不产生备份文件""""
+set nobackup
+
+""""rainbow_parentheses.vim""""
+let g:rbpt_colorpairs = [ ['brown', 'RoyalBlue3'], ['Darkblue', 'SeaGreen3'], ['darkgray', 'DarkOrchid3'], ['darkgreen', 'firebrick3'],['darkcyan', 'RoyalBlue3'],['darkred', 'SeaGreen3'],['darkmagenta', 'DarkOrchid3'],['brown', 'firebrick3'],['gray', 'RoyalBlue3'],['black',       'SeaGreen3'],['darkmagenta', 'DarkOrchid3'],['Darkblue',  'firebrick3'],['darkgreen', 'RoyalBlue3'],['darkcyan', 'SeaGreen3'],['darkred', 'DarkOrchid3'],['red', 'firebrick3']]
+let g:rbpt_max = 16
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
