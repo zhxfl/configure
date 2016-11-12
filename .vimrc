@@ -39,7 +39,8 @@ syntax enable
 " 允许用指定语法高亮配色方案替换默认方案
 syntax on
 " grep 所搜字符串
-nnoremap <silent> <F7>  :Rgrep<CR>
+"<silent> <F7>  :Rgrep -I <CR>
+nnoremap <silent> <F7>  :Rgrep -I <CR>
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_register_as_syntastic_checker = 1
@@ -116,7 +117,6 @@ function! UpdateCtags()
     TlistUpdate 
 endfunction
 nmap <F2> : call UpdateCtags() <CR>
-
 """"不产生备份文件""""
 set nobackup
 set noswapfile
