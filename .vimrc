@@ -113,7 +113,7 @@ let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++' "set the opti
 
 """""ctags auto update"""""
 function! UpdateCtags()
-    !ctags -R --file-scope=yes --langmap=c:+.cu --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q
+    !ctags -R --file-scope=yes --langmap=c:+.cu --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q . /usr/local/cuda/include/
     TlistUpdate 
 endfunction
 nmap <F2> : call UpdateCtags() <CR>
@@ -129,3 +129,9 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 "colorscheme elflord
+"""不兼容vi,设置backspace的工作模式，避免不能退格
+set nocp
+set backspace=indent,eol,start
+
+"""""测试ycm支持cuda"""""
+"autocmd FileType cuda set ft=c.cuda
