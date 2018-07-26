@@ -19,8 +19,8 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'Mizuchi/STL-Syntax'
 Bundle 'vim-scripts/a.vim'
 Bundle 'Yggdroot/indentLine'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'vim-scripts/Conque-GDB' 
+" Bundle 'scrooloose/nerdcommenter'
+" Bundle 'vim-scripts/Conque-GDB' 
 Bundle 'kien/rainbow_parentheses.vim'
 call vundle#end()            " required
 filetype plugin indent on     " required!   /** vimrc文件配置结束 **/
@@ -39,8 +39,8 @@ syntax enable
 " 允许用指定语法高亮配色方案替换默认方案
 syntax on
 " grep 所搜字符串
-"<silent> <F7>  :Rgrep -I <CR>
-nnoremap <silent> <F7>  :Rgrep -I <CR>
+nnoremap <silent> <F8>  :Rgrep -I <CR>
+:let Grep_Default_Filelist = '*.cpp *.cu *.h *.c'
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_register_as_syntastic_checker = 1
@@ -56,7 +56,10 @@ nnoremap <F12> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 """fuzzy finder"""
 "查找文件跳轉　
+"指定查找的目录
+let g:fuf_coveragefile_globPatterns = ['src/**/.*', 'inc/**/*', "lib/**/*"]
 nmap <Leader>ff :FufCoverageFile<CR>
+
 "查找tags FufTag
 "nmap <Leader>tt: FufTag<CR>
 
@@ -113,16 +116,17 @@ let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++' "set the opti
 
 """""ctags auto update"""""
 function! UpdateCtags()
-    !ctags -R --file-scope=yes --langmap=c:+.cu --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q . /usr/local/cuda/include/
+    !ctags -R --file-scope=yes --langmap=c:+.cu --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q ./inc ./src ./lib /usr/local/cuda/include/
     TlistUpdate 
 endfunction
-nmap <F2> : call UpdateCtags() <CR>
+nmap <F7> : call UpdateCtags() <CR>
+
 """"不产生备份文件""""
 set nobackup
 set noswapfile
 
 """"rainbow_parentheses.vim""""
-let g:rbpt_colorpairs = [ ['brown', 'RoyalBlue3'], ['Darkblue', 'SeaGreen3'], ['darkgray', 'DarkOrchid3'], ['darkgreen', 'firebrick3'],['darkcyan', 'RoyalBlue3'],['darkred', 'SeaGreen3'],['darkmagenta', 'DarkOrchid3'],['brown', 'firebrick3'],['gray', 'RoyalBlue3'],['black', 'SeaGreen3'],['darkmagenta', 'DarkOrchid3'],['Darkblue',  'firebrick3'],['darkgreen', 'RoyalBlue3'],['darkcyan', 'SeaGreen3'],['darkred', 'DarkOrchid3'],['red', 'firebrick3']]
+let g:rbpt_colorpairs = [ ['brown', 'RoyalBlue3'], ['Darkred', 'SeaGreen3'], ['darkgray', 'DarkOrchid3'], ['darkgreen', 'firebrick3'],['darkcyan', 'RoyalBlue3'],['darkred', 'SeaGreen3'],['darkmagenta', 'DarkOrchid3'],['brown', 'firebrick3'],['gray', 'RoyalBlue3'],['red', 'SeaGreen3'],['darkmagenta', 'DarkOrchid3'],['Darkred',  'firebrick3'],['darkgreen', 'RoyalBlue3'],['darkcyan', 'SeaGreen3'],['darkred', 'DarkOrchid3'],['red', 'firebrick3']]
 let g:rbpt_max = 16
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -135,3 +139,8 @@ set backspace=indent,eol,start
 
 """""测试ycm支持cuda"""""
 "autocmd FileType cuda set ft=c.cuda
+
+"""终端编码"""
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
